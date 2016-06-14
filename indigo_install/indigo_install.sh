@@ -15,7 +15,7 @@ rosinstall_generator desktop --rosdistro indigo --deps --wet-only --tar > indigo
 wstool init -j8 src indigo-desktop-wet.rosinstall
 #wstool update -j 4 -t src
 
-rosdep install --from-paths src --ignore-src --rosdistro indigo -y
+rosdep install --from-paths src --ignore-src --rosdistro indigo -ry
 
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
 
