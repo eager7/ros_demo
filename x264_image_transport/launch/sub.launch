@@ -1,0 +1,6 @@
+<launch>
+  <node name="videosubstream" pkg="x264_image_transport" type="vsubscriber" output="screen" ns="video_publisher">
+    <param name="image_transport" value="x264"/>
+  </node>
+</launch>
+
