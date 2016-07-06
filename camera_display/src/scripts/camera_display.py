@@ -6,6 +6,7 @@ from std_msgs.msg import String
 import cv2
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
+import numpy as np
 
 def SubccriberHandler(data):
     print "Recv Publicer Msg"
@@ -14,12 +15,11 @@ def SubccriberHandler(data):
 
     bridge = CvBridge()
     try:
-        cv_image = bridge.cv2_to_imgmsg(data, 'bgr8')
-        (rows,cols,channels) = cv_image.shape
-        if cols > 60 and rows > 60 :
-            cv2.circle(cv_image, (50,50), 10, 255)
-            cv2.imshow("Image window", cv_image)
-            cv2.waitKey(3)
+        #prev_gs = cv2.cvtColor(np.asarray(data[:,:]), cv2.COLOR_BGR2GRAY)
+        cv_image = bridge.imgmsg_to_cv2(data, 'bgr8')
+        cv2.imshow("Image", cv_image)
+        cv2.waitKey(3)
+
     except CvBridgeError as e:
         print e
 
