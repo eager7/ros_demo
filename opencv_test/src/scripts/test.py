@@ -12,7 +12,7 @@ if __name__ == '__main__':
     print "camera display"
     cv2.namedWindow("Image window")
     try:
-        img = cv2.imread("/home/pct/ros_demo/demo_code/src/opencv_test/src/test.jpg")
+        img = cv2.imread("/home/pct/ros_demo/opencv_test/src/resource/test.jpg")
     except IOError, e:
         print e
     if img.any():

@@ -6,12 +6,13 @@ project(camera_display)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
-  opencv2
+  image_geometry
+  image_transport
   rospy
   sensor_msgs
   std_msgs
 )
-
+find_package(OpenCV REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -118,7 +119,9 @@ catkin_package(
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
-
+include_directories(
+  ${OpenCV_INCLUDE_DIRS}
+)
 ## Declare a C++ library
 # add_library(camera_display
 #   src/${PROJECT_NAME}/camera_display.cpp

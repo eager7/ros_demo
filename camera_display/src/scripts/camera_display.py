@@ -9,9 +9,9 @@ from cv_bridge import CvBridge, CvBridgeError
 
 def SubccriberHandler(data):
     print "Recv Publicer Msg"
-    img = cv2.imread("test.jpg")
-    cv2.imshow("Image window", img)
-    return
+    #img = cv2.imread("/home/pct/ros_demo/opencv_test/src/resource/test.jpg")
+    #cv2.imshow("Image", img)
+
     bridge = CvBridge()
     try:
         cv_image = bridge.cv2_to_imgmsg(data, 'bgr8')
@@ -23,16 +23,13 @@ def SubccriberHandler(data):
     except CvBridgeError as e:
         print e
 
-
-
-
 if __name__ == '__main__':
     print "camera display"
-    cv2.namedWindow("Image window")
-    try:
-        rospy.init_node('camera_display', anonymous=True)
-        rospy.Subscriber("camera/image", Image, SubccriberHandler)
-        rospy.spin()
-    except rospy.ROSInterruptException:
-        pass
-    cv2.destroyAllWindows()
+    cv2.namedWindow("Image")
+    cv2.waitKey(2000)
+
+    rospy.init_node('camera_display', anonymous=True)
+    rospy.Subscriber("camera/image", Image, SubccriberHandler)
+    rospy.spin()
+
+    #cv2.destroyAllWindows()
