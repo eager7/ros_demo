@@ -6,14 +6,13 @@ project(opencv_test)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
-  cv_bridge
+  image_geometry
   image_transport
   rospy
   sensor_msgs
   std_msgs
-  opencv2
 )
-
+find_package(OpenCV REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -120,7 +119,9 @@ catkin_package(
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
-
+include_directories(
+  ${OpenCV_INCLUDE_DIRS}
+)
 ## Declare a C++ library
 # add_library(opencv_test
 #   src/${PROJECT_NAME}/opencv_test.cpp
