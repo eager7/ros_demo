@@ -1,6 +1,0 @@
-<launch>
-  <node name="videosubstream" pkg="image_transport_tutorial" type="my_subscriber" output="screen" ns="video_publisher">
-    <param name="image_transport" value="x264"/>
-  </node>
-</launch>
-

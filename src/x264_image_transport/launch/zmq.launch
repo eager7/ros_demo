@@ -1,6 +1,0 @@
-<launch>
-  <node name="vsubstream" pkg="x264_image_transport" type="zmq_subscriber" output="screen" ns="video_publisher">
-    <!--    <param name="image_transport" value="x264"/> -->
-  </node>
-</launch>
-

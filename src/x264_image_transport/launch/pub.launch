@@ -1,7 +1,0 @@
-<launch>
-    <arg name="vsource" default="0" />
-    <node name="video_publisher" pkg="x264_image_transport" type="vpublisher" output="screen" >
-    <param name="video_sname" value="$(arg vsource)" />
-    <param name="image_transport" value="x264"/>
-    </node>
-</launch>
