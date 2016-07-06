@@ -1,0 +1,4 @@
+<launch>
+    <node name="camera_display" pkg="camera_display" type="camera_display.py" output="screen"
+	ns="video_publisher"/>
+</launch>
